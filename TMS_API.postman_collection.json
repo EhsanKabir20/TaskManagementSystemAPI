@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "522461fd-c958-4fd1-84cd-a08a4fdfb6a4",
+		"name": "TMS_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10077735"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"jane_doe\",\r\n  \"userPassword\": \"pass1234\",\r\n  \"firstName\": \"Jane\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"jane@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://smartehsan-001-site1.ctempurl.com/register",
+					"protocol": "http",
+					"host": [
+						"smartehsan-001-site1",
+						"ctempurl",
+						"com"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SignIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"admin\",\r\n  \"userPassword\": \"pass1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://smartehsan-001-site1.ctempurl.com/sign-in",
+					"protocol": "http",
+					"host": [
+						"smartehsan-001-site1",
+						"ctempurl",
+						"com"
+					],
+					"path": [
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDMwOTY2NzQsImlzcyI6InRtcy5jb20iLCJhdWQiOiJ0bXMuY29tIn0.24ajfmBKNHLV860CwWZdYb3xkfAiXZVczuvpRc1-1ps",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://smartehsan-001-site1.ctempurl.com/Tasks?taskStatus=1&assignedTo=1",
+					"protocol": "http",
+					"host": [
+						"smartehsan-001-site1",
+						"ctempurl",
+						"com"
+					],
+					"path": [
+						"Tasks"
+					],
+					"query": [
+						{
+							"key": "taskStatus",
+							"value": "1"
+						},
+						{
+							"key": "assignedTo",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Task By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDMwOTY2NzQsImlzcyI6InRtcy5jb20iLCJhdWQiOiJ0bXMuY29tIn0.24ajfmBKNHLV860CwWZdYb3xkfAiXZVczuvpRc1-1ps",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://smartehsan-001-site1.ctempurl.com/Tasks/1",
+					"protocol": "http",
+					"host": [
+						"smartehsan-001-site1",
+						"ctempurl",
+						"com"
+					],
+					"path": [
+						"Tasks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDMwOTIyOTQsImlzcyI6InRtcy5jb20iLCJhdWQiOiJ0bXMuY29tIn0.jj-fKHVgksHSvYzYmmjOz9UbMJpBUodQWVglonI_y3A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"trashed\": false,\r\n  \"title\": \"API Development\",\r\n  \"shortDescription\": \"Create API endpoints for task management system\",\r\n  \"taskStatus\": 1,\r\n  \"dueDate\": \"2023-12-20\",\r\n  \"startDate\": \"2023-12-19\",\r\n  \"endDate\": \"2023-12-20\",\r\n  \"assignedTo\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://smartehsan-001-site1.ctempurl.com/Tasks",
+					"protocol": "http",
+					"host": [
+						"smartehsan-001-site1",
+						"ctempurl",
+						"com"
+					],
+					"path": [
+						"Tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDMwOTIyOTQsImlzcyI6InRtcy5jb20iLCJhdWQiOiJ0bXMuY29tIn0.jj-fKHVgksHSvYzYmmjOz9UbMJpBUodQWVglonI_y3A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"taskId\": 1,\r\n  \"trashed\": false,\r\n  \"title\": \"API Development\",\r\n  \"shortDescription\": \"Create API endpoints for task management system\",\r\n  \"taskStatus\": 1,\r\n  \"dueDate\": \"2023-12-20\",\r\n  \"startDate\": \"2023-12-19\",\r\n  \"endDate\": \"2023-12-20\",\r\n  \"assignedTo\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://smartehsan-001-site1.ctempurl.com/Tasks",
+					"protocol": "http",
+					"host": [
+						"smartehsan-001-site1",
+						"ctempurl",
+						"com"
+					],
+					"path": [
+						"Tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDMwOTIyOTQsImlzcyI6InRtcy5jb20iLCJhdWQiOiJ0bXMuY29tIn0.jj-fKHVgksHSvYzYmmjOz9UbMJpBUodQWVglonI_y3A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://smartehsan-001-site1.ctempurl.com/Tasks/5",
+					"protocol": "http",
+					"host": [
+						"smartehsan-001-site1",
+						"ctempurl",
+						"com"
+					],
+					"path": [
+						"Tasks",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
